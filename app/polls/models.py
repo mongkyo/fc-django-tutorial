@@ -20,7 +20,8 @@ class Question(models.Model):
                 -> 24시간이 지나지 않았다.
                 -> 게시한 지 1일 미만인 상태이다        :return:
         """
-        return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
+        now = timezone.now()
+        return now - datetime.timedelta(days=1) <= self.pub_date <= now
 
 
 class Choice(models.Model):
