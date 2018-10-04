@@ -7,6 +7,7 @@ app_name = 'polls'
 
 urlpatterns_cbv = [
     path('', cbv.IndexView.as_view(), name='index'),
+    path('<int:question_id>/', cbv.DetailView.as_view(), name='detail')
 ]
 
 urlpatterns = [
